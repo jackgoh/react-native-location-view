@@ -63,6 +63,7 @@ export default class LocationView extends React.Component {
       ...DEFAULT_DELTA,
       ...this.props.initialLocation,
     },
+    error: null
   };
 
   _animateInput = () => {
@@ -110,7 +111,7 @@ export default class LocationView extends React.Component {
     Geolocation.getCurrentPosition(position => {
       let location = (({ latitude, longitude }) => ({ latitude, longitude }))(position.coords);
       this._setRegion(location);
-    }, {}, {
+    }, (error) => this.setState({ error: error.message }), {
       enableHighAccuracy: true,
       timeout: 50000,
       maximumAge: 10000
