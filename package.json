@@ -45,7 +45,7 @@
     "utils/*"
   ],
   "peerDependencies": {
-    "react-native": ">= 0.50",
+    "react-native": ">= 0.60",
     "react-native-maps": ">= 0.19.0",
     "react-native-vector-icons": "^4.4.3"
   },
